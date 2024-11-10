@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Varela Round';
+  src: url('./assets/fonts/VarelaRound.ttf');
+}
+@font-face {
+  font-family: 'Rubik';
+  src: url('./assets/fonts/Rubik.ttf');
+}
+@font-face {
+  font-family: 'Fugaz One';
+  src: url('./assets/fonts/FugazOne.ttf');
+}
+
+* {
+  font-family: 'Varela Round', 'Rubik', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
