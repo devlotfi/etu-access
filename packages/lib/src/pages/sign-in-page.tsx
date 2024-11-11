@@ -31,15 +31,15 @@ import LogoSVG from '../assets/svg/logo.svg';
 import { ThemeContext } from '../context/theme-context';
 import { $api } from '../api/openapi-react-query-client';
 import { ThemeOptions } from '../types/theme-options';
-import { RefreshTokenMode } from '../types/refresh-token-mode';
 import { InMemoryStore } from '../api/in-memory-store';
 import './sign-in-page.css';
+import { TokenType } from '../types/token-type';
 
 interface Props {
-  refreshTokenMode: RefreshTokenMode;
+  tokenType: TokenType;
 }
 
-export function SignInPage({ refreshTokenMode }: PropsWithChildren<Props>) {
+export function SignInPage({ tokenType }: PropsWithChildren<Props>) {
   const { setTheme, themeOption, appliedTheme } = useContext(ThemeContext);
   const queryClient = useQueryClient();
 
@@ -58,7 +58,7 @@ export function SignInPage({ refreshTokenMode }: PropsWithChildren<Props>) {
           body: {
             email: values.email,
             password: values.password,
-            tokenType: 'USER',
+            tokenType,
           },
           credentials: 'include',
         });
@@ -70,9 +70,11 @@ export function SignInPage({ refreshTokenMode }: PropsWithChildren<Props>) {
     '/auth/sign-in',
     {
       onSuccess(data) {
-        if (refreshTokenMode === 'IN_MEMORY') {
+        if (tokenType === 'ACCESS_POINT') {
           InMemoryStore.refreshToken = data.refreshToken;
         }
+        console.log(InMemoryStore.refreshToken);
+
         queryClient.refetchQueries({
           exact: false,
           queryKey: ['get', '/auth/sign-in/refresh-token'],

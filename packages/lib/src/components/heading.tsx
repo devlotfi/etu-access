@@ -14,7 +14,7 @@ interface Props {
   classNames?: ClassNames;
 }
 
-export default function Heading({ classNames = {}, icon, text }: Props) {
+export function Heading({ classNames = {}, icon, text }: Props) {
   return (
     <div
       className={cn(

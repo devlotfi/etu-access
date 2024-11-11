@@ -28,3 +28,8 @@ export * from './utils';
 export * from './constants';
 
 export * from './pages/sign-in-page';
+export * from './pages/settings-page';
+
+export * from './components/heading';
+export * from './components/validated-input';
+export * from './components/sign-out-modal';

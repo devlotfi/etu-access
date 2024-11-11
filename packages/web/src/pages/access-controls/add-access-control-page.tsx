@@ -1,13 +1,12 @@
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
-import Heading from '../../components/heading';
 import { Button, Card, CardBody, Switch } from '@nextui-org/react';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useQueryClient } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
-import ValidatedInput from '../../components/validated-input';
-import { $api } from '@etu-access/lib';
+import { $api, ValidatedInput } from '@etu-access/lib';
+import { Heading } from '@etu-access/lib';
 
 export default function AddAccessControlPage() {
   const navigate = useNavigate();

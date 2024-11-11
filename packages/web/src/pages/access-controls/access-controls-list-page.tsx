@@ -1,10 +1,10 @@
 import { faDoorOpen, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Input, Pagination } from '@nextui-org/react';
-import Heading from '../../components/heading';
 import AccessControlItem from '../../components/access-control-item';
 import PageLoading from '../../components/page-loadings';
 import { $api, usePagination } from '@etu-access/lib';
+import { Heading } from '@etu-access/lib';
 
 export default function AccessControlsListPage() {
   const { handleChange, handleSubmit, setFieldValue, values, search } =

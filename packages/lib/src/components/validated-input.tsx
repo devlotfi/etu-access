@@ -5,7 +5,7 @@ interface Props extends InputProps {
   formik: any;
 }
 
-export default function ValidatedInput({
+export function ValidatedInput({
   name,
   formik,
   label,

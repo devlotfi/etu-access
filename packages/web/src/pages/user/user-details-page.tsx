@@ -13,7 +13,6 @@ import {
   faTrash,
   faUserGear,
 } from '@fortawesome/free-solid-svg-icons';
-import Heading from '../../components/heading';
 import * as yup from 'yup';
 import { useFormik } from 'formik';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -22,8 +21,7 @@ import PageLoading from '../../components/page-loadings';
 import PageError from '../../components/page-error';
 import { useState } from 'react';
 import GenericDeleteModal from '../../components/delete-modal';
-import ValidatedInput from '../../components/validated-input';
-import { $api, components } from '@etu-access/lib';
+import { $api, components, Heading, ValidatedInput } from '@etu-access/lib';
 
 export default function UserDetailsPage() {
   const { id } = useParams();

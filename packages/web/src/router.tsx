@@ -1,7 +1,6 @@
 import { createBrowserRouter, Navigate } from 'react-router-dom';
 import DashboardLayout from './layout/dashboard-layout';
 import DashboardProvider from './provider/dashboard-provider';
-import SettingsPage from './pages/settings-page';
 import UsersLayout from './layout/users-layout';
 import UsersListPage from './pages/user/users-list-page';
 import AddUserPage from './pages/user/add-user-page';
@@ -14,7 +13,12 @@ import AccessControlsListPage from './pages/access-controls/access-controls-list
 import AddAccessControlPage from './pages/access-controls/add-access-control-page';
 import AccessControlDetailsPage from './pages/access-controls/access-control-details-page';
 import AccessControlsLayout from './layout/access-controls-layout';
-import { NotProtectedRoute, ProtectedRoute, SignInPage } from '@etu-access/lib';
+import {
+  NotProtectedRoute,
+  ProtectedRoute,
+  SettingsPage,
+  SignInPage,
+} from '@etu-access/lib';
 
 export const router = createBrowserRouter([
   {
@@ -25,7 +29,7 @@ export const router = createBrowserRouter([
     path: '/sign-in',
     element: (
       <NotProtectedRoute>
-        <SignInPage refreshTokenMode="COOKIE"></SignInPage>
+        <SignInPage tokenType="USER"></SignInPage>
       </NotProtectedRoute>
     ),
   },

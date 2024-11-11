@@ -4,15 +4,15 @@ import { $api } from '../api/openapi-react-query-client';
 import { AuthContext } from '../context/auth-context';
 import { InMemoryStore } from '../main';
 import LogoSVG from '../assets/svg/logo.svg';
-import { RefreshTokenMode } from '../types/refresh-token-mode';
+import { TokenType } from '../types/token-type';
 
 interface Props {
-  refreshTokenMode: RefreshTokenMode;
+  tokenType: TokenType;
 }
 
 export function AuthProvider({
   children,
-  refreshTokenMode,
+  tokenType,
 }: PropsWithChildren<Props>) {
   const { isLoading, data } = $api.useQuery(
     'get',
@@ -22,7 +22,7 @@ export function AuthProvider({
       params: {
         query: {
           refreshToken:
-            refreshTokenMode === 'IN_MEMORY'
+            tokenType === 'ACCESS_POINT'
               ? InMemoryStore.refreshToken
               : undefined,
         },

@@ -1,5 +1,4 @@
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
-import Heading from '../../components/heading';
 import {
   Button,
   Card,
@@ -13,8 +12,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useQueryClient } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
 import { parseDate } from '@internationalized/date';
-import ValidatedInput from '../../components/validated-input';
-import { $api } from '@etu-access/lib';
+import { $api, ValidatedInput } from '@etu-access/lib';
+import { Heading } from '@etu-access/lib';
 
 export default function AddStudentPage() {
   const navigate = useNavigate();

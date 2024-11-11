@@ -2,10 +2,9 @@ import { faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button, cn, useDisclosure } from '@nextui-org/react';
 import { useContext } from 'react';
-import DashboardNavbarDropdown from './dashboard-navbar-dropdown';
-import SignOutModal from './sign-out-modal';
 import { DashboardContext } from '../context/dashboard-context';
-import { LogoSVG } from '@etu-access/lib';
+import { LogoSVG, SignOutModal } from '@etu-access/lib';
+import DashboardNavbarDropdown from './dashboard-navbar-dropdown';
 
 export default function DashboardNavbar() {
   const { sidebarOpen, setSidebarOpen } = useContext(DashboardContext);

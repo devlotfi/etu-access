@@ -10,10 +10,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Card, CardBody, Divider, Select, SelectItem } from '@nextui-org/react';
 import { useTranslation } from 'react-i18next';
 import { useContext } from 'react';
-import Heading from '../components/heading';
-import { ThemeContext, ThemeOptions } from '@etu-access/lib';
+import { Heading, ThemeContext, ThemeOptions } from '@etu-access/lib';
 
-export default function SettingsPage() {
+export function SettingsPage() {
   const { setTheme, themeOption } = useContext(ThemeContext);
   const { t, i18n } = useTranslation();
 

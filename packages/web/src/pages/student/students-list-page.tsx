@@ -16,10 +16,10 @@ import {
   TableHeader,
   TableRow,
 } from '@nextui-org/react';
-import Heading from '../../components/heading';
 import { memo, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { $api, components, usePagination, Utils } from '@etu-access/lib';
+import { Heading } from '@etu-access/lib';
 
 interface MemoTableProps {
   isLoading: boolean;

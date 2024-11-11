@@ -15,7 +15,7 @@ interface Props {
   onOpenChange: () => void;
 }
 
-export default function SignOutModal({ isOpen, onOpenChange }: Props) {
+export function SignOutModal({ isOpen, onOpenChange }: Props) {
   const { t } = useTranslation();
 
   const queryClient = useQueryClient();
@@ -23,6 +23,7 @@ export default function SignOutModal({ isOpen, onOpenChange }: Props) {
   const { mutate, isPending } = $api.useMutation('post', '/auth/sign-out', {
     onSuccess() {
       InMemoryStore.accessToken = undefined;
+      InMemoryStore.refreshToken = undefined;
       queryClient.resetQueries({
         exact: false,
         queryKey: ['get', '/auth/sign-in/refresh-token'],

@@ -15,7 +15,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
       <ThemeProvider>
         <QueryClientProvider client={queryClient}>
           <WindowLayout>
-            <AuthProvider refreshTokenMode="IN_MEMORY">
+            <AuthProvider tokenType="ACCESS_POINT">
               <App />
             </AuthProvider>
           </WindowLayout>

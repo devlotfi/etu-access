@@ -39,10 +39,12 @@ export class AuthService {
     );
 
     const cookies = new Cookies(req, res);
-    cookies.set(Constants.REFRESH_TOKEN_COOKIE_KEY, refreshToken, {
-      httpOnly: true,
-      sameSite: 'lax',
-    });
+    if (tokenType === TokenType.USER) {
+      cookies.set(Constants.REFRESH_TOKEN_COOKIE_KEY, refreshToken, {
+        httpOnly: true,
+        sameSite: 'lax',
+      });
+    }
 
     return {
       accessToken,

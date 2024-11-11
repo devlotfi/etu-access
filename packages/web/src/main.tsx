@@ -14,7 +14,7 @@ createRoot(document.getElementById('root')!).render(
     <NextUIProvider>
       <ThemeProvider>
         <QueryClientProvider client={queryClient}>
-          <AuthProvider refreshTokenMode="COOKIE">
+          <AuthProvider tokenType="USER">
             <App />
           </AuthProvider>
         </QueryClientProvider>
