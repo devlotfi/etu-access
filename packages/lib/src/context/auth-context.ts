@@ -5,7 +5,7 @@ interface AuthContext {
   user: components['schemas']['UserDTO'] | null;
 }
 
-export const AuthContextInitialValue: AuthContext = {
+const AuthContextInitialValue: AuthContext = {
   user: null,
 };
 

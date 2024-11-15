@@ -6,6 +6,7 @@ import { NextUIProvider } from '@nextui-org/react';
 import { AuthProvider, ThemeProvider } from '@etu-access/lib';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import WindowLayout from './layout/window-layout';
+import CardReaderProvider from './provider/card-reader-provider';
 
 const queryClient = new QueryClient();
 
@@ -16,7 +17,9 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
         <QueryClientProvider client={queryClient}>
           <WindowLayout>
             <AuthProvider tokenType="ACCESS_POINT">
-              <App />
+              <CardReaderProvider>
+                <App></App>
+              </CardReaderProvider>
             </AuthProvider>
           </WindowLayout>
         </QueryClientProvider>

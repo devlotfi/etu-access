@@ -33,3 +33,5 @@ export * from './pages/settings-page';
 export * from './components/heading';
 export * from './components/validated-input';
 export * from './components/sign-out-modal';
+export * from './components/page-loading';
+export * from './components/page-error';

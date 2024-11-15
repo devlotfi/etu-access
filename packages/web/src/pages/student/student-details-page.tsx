@@ -12,11 +12,15 @@ import * as yup from 'yup';
 import { useFormik } from 'formik';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useQueryClient } from '@tanstack/react-query';
-import PageLoading from '../../components/page-loadings';
-import PageError from '../../components/page-error';
 import GenericDeleteModal from '../../components/delete-modal';
 import { parseDate } from '@internationalized/date';
-import { $api, components, ValidatedInput } from '@etu-access/lib';
+import {
+  $api,
+  components,
+  PageError,
+  PageLoading,
+  ValidatedInput,
+} from '@etu-access/lib';
 import { Heading } from '@etu-access/lib';
 
 export default function StudentDetailsPage() {
