@@ -70,8 +70,9 @@ fn connect_to_serial_port(app_handle: AppHandle, port_name: String) -> Result<()
                     if let Some(pos) = message.iter().position(|&byte| byte == b'\n') {
                         // Extract and print the message up to the newline
                         let complete_msg = String::from_utf8_lossy(&message[..pos]);
-                        println!("Received: {}", complete_msg);
-                        let _ = app_handle.emit("CARD_DETECTED", complete_msg);
+                        let cleaned_msg = complete_msg.trim_end_matches('\r').to_string();
+                        println!("Received: {}", cleaned_msg);
+                        let _ = app_handle.emit("CARD_DETECTED", cleaned_msg);
 
                         // Remove the processed part of the message
                         message.drain(..=pos);
