@@ -43,6 +43,7 @@ export default function HomePage() {
           ></HomePageTile>
         </ScrollShadow>
       </div>
+
       <SignOutModal isOpen={isOpen} onOpenChange={onOpenChange}></SignOutModal>
     </>
   );

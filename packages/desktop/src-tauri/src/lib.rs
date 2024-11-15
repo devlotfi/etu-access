@@ -41,7 +41,10 @@ fn connect_to_serial_port(app_handle: AppHandle, port_name: String) -> Result<()
     .timeout(Duration::from_millis(10))
     .open() {
       Ok(port) => port,
-      Err(_) => return Err(TauriError { message: "Error connection to port".to_string() })
+      Err(e) => {
+        println!("{}", e);
+        return Err(TauriError { message: "Error connection to port".to_string() })
+      }
   };
 
   let port_clone = match port.try_clone() {

@@ -1,6 +1,7 @@
 import LogoSVG from './assets/svg/logo.svg';
 import ErrorSVG from './assets/svg/error.svg';
-export { LogoSVG, ErrorSVG };
+import IdCardSVG from './assets/svg/id-card.svg';
+export { LogoSVG, ErrorSVG, IdCardSVG };
 
 export * from './__generated__/schema';
 export * from './api/auth-middleware';

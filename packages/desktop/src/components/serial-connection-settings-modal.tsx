@@ -1,5 +1,9 @@
 import { PageLoading } from '@etu-access/lib';
-import { faPlug, faPlugCircleXmark } from '@fortawesome/free-solid-svg-icons';
+import {
+  faPlug,
+  faPlugCircleXmark,
+  faRepeat,
+} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   Modal,
@@ -10,7 +14,7 @@ import {
   Select,
   SelectItem,
 } from '@nextui-org/react';
-import { useMutation, useQuery } from '@tanstack/react-query';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { invoke } from '@tauri-apps/api/core';
 import { useFormik } from 'formik';
 import { useContext } from 'react';
@@ -28,6 +32,8 @@ export function SerialConnectionSettings({
   onOpenChange,
   onClose,
 }: Props) {
+  const queryClient = useQueryClient();
+
   const { portName, setPortName } = useContext(CardReaderContext);
 
   const { data: portListData, isLoading: portListIsLoading } = useQuery({
@@ -88,24 +94,38 @@ export function SerialConnectionSettings({
             </ModalHeader>
             <ModalBody className="pb-[1.5rem]">
               <form className="flex flex-col space-y-3" onSubmit={handleSubmit}>
-                <Select
-                  name="portName"
-                  label="Serial port"
-                  placeholder="Serial port"
-                  variant="bordered"
-                  startContent={
-                    <FontAwesomeIcon icon={faPlug}></FontAwesomeIcon>
-                  }
-                  selectedKeys={[portName ? portName : values.portName]}
-                  isDisabled={portName !== null}
-                  onChange={handleChange}
-                >
-                  {portListData.map((port) => (
-                    <SelectItem key={port.port_name}>
-                      {port.port_name}
-                    </SelectItem>
-                  ))}
-                </Select>
+                <div className="flex items-center space-x-2">
+                  <Select
+                    name="portName"
+                    label="Serial port"
+                    placeholder="Serial port"
+                    variant="bordered"
+                    startContent={
+                      <FontAwesomeIcon icon={faPlug}></FontAwesomeIcon>
+                    }
+                    selectedKeys={[portName ? portName : values.portName]}
+                    isDisabled={portName !== null}
+                    onChange={handleChange}
+                  >
+                    {portListData.map((port) => (
+                      <SelectItem key={port.port_name}>
+                        {port.port_name}
+                      </SelectItem>
+                    ))}
+                  </Select>
+
+                  <Button
+                    isIconOnly
+                    onPress={() =>
+                      queryClient.resetQueries({
+                        exact: false,
+                        queryKey: ['SERIAL_PORT_LIST'],
+                      })
+                    }
+                  >
+                    <FontAwesomeIcon icon={faRepeat}></FontAwesomeIcon>
+                  </Button>
+                </div>
 
                 {portName ? (
                   <Button
