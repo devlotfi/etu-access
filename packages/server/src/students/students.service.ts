@@ -5,6 +5,7 @@ import { Prisma } from '@prisma/client';
 import { StudentDTO } from './types/student-dto';
 import { AddStudentDTO } from './types/add-student-dto';
 import { EditStudentDTO } from './types/edit-student-dto';
+import { StudentsByIdCardsDTO } from './types/students-by-id-cards-dto';
 
 @Injectable()
 export class StudentsService {
@@ -53,6 +54,47 @@ export class StudentsService {
         id,
       },
     });
+  }
+
+  public async studentsByCardIds(
+    search: string,
+    page: number,
+    studentsByIdCardsDto: StudentsByIdCardsDTO,
+  ): Promise<StudentsResponseDTO> {
+    const whereQuery: Prisma.StudentWhereInput = {
+      id: {
+        in: studentsByIdCardsDto.studentIdCards,
+      },
+      OR: [
+        {
+          firstName: {
+            contains: search,
+            mode: 'insensitive',
+          },
+        },
+        {
+          lastName: {
+            contains: search,
+            mode: 'insensitive',
+          },
+        },
+      ],
+    };
+    const [count, students] = await this.databaseService.$transaction([
+      this.databaseService.student.count({
+        where: whereQuery,
+      }),
+      this.databaseService.student.findMany({
+        where: whereQuery,
+        take: 10,
+        skip: 10 * (page - 1),
+      }),
+    ]);
+
+    return {
+      items: students,
+      pages: Math.ceil(count / 10),
+    };
   }
 
   public async addStudent(addStudentDto: AddStudentDTO): Promise<StudentDTO> {

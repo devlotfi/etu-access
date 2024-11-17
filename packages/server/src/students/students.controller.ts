@@ -27,6 +27,7 @@ import { AddStudentDTO } from './types/add-student-dto';
 import { EditStudentDTO } from './types/edit-student-dto';
 import { TokenType } from 'src/auth/types/token-type';
 import { TokenOfType } from 'src/shared/decorators/token-type.decorator';
+import { StudentsByIdCardsDTO } from './types/students-by-id-cards-dto';
 
 @Controller('students')
 export class StudentsController {
@@ -60,6 +61,25 @@ export class StudentsController {
   })
   public async studentDetails(@Param() idParams: IdParams) {
     return await this.studentsService.studentDetails(idParams.id);
+  }
+
+  @Post('/student-id-cards')
+  @IsAdmin(true)
+  @TokenOfType(TokenType.ACCESS_POINT)
+  @UseGuards(AuthGuard)
+  @ApiBearerAuth()
+  @ApiOkResponse({
+    type: () => StudentsResponseDTO,
+  })
+  public async studentsByCardIds(
+    @Query() paginationQuery: PaginationQuery,
+    @Body() studentsByIdCardsDto: StudentsByIdCardsDTO,
+  ) {
+    return await this.studentsService.studentsByCardIds(
+      paginationQuery.search,
+      paginationQuery.page,
+      studentsByIdCardsDto,
+    );
   }
 
   @Post()
