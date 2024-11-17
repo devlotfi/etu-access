@@ -1,8 +1,8 @@
 import {
   faGear,
-  faList,
   faPowerOff,
   faTowerBroadcast,
+  faUsers,
 } from '@fortawesome/free-solid-svg-icons';
 import HomePageTile from '../components/home-page-tile';
 import { ScrollShadow, useDisclosure } from '@nextui-org/react';
@@ -26,9 +26,9 @@ export default function HomePage() {
             onPress={() => navigate('/dashboard/card-reader')}
           ></HomePageTile>
           <HomePageTile
-            icon={faList}
-            title="Saved cards"
-            onPress={() => navigate('/dashboard/saved-cards')}
+            icon={faUsers}
+            title="Attending students"
+            onPress={() => navigate('/dashboard/attending-students')}
           ></HomePageTile>
           <HomePageTile
             icon={faGear}

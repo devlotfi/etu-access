@@ -24,4 +24,8 @@ export abstract class AttendanceStore {
     localStorage.setItem(Constants.CARDS_STORAGE_KEY, JSON.stringify(list));
     return true;
   }
+
+  public static resetAttendance() {
+    localStorage.setItem(Constants.CARDS_STORAGE_KEY, JSON.stringify([]));
+  }
 }

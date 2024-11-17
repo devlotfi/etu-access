@@ -26,7 +26,7 @@ export default function AccessControlDetailsPage() {
 
   const { isLoading, data, isError, error } = $api.useQuery(
     'get',
-    '/access-controls/{id}',
+    '/access-controls/all/{id}',
     {
       params: {
         path: {

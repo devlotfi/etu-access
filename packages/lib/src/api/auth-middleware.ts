@@ -30,6 +30,9 @@ export const authMiddelware: Middleware = {
       >('/auth/sign-in/refresh-token', {
         withCredentials: true,
         baseURL: import.meta.env.VITE_API_URL,
+        params: {
+          refreshToken: InMemoryStore.refreshToken,
+        },
       });
 
       InMemoryStore.accessToken = data.accessToken;

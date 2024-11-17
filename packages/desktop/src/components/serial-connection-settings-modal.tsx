@@ -106,12 +106,13 @@ export function SerialConnectionSettings({
                     selectedKeys={[portName ? portName : values.portName]}
                     isDisabled={portName !== null}
                     onChange={handleChange}
+                    items={portListData}
                   >
-                    {portListData.map((port) => (
+                    {(port) => (
                       <SelectItem key={port.port_name}>
                         {port.port_name}
                       </SelectItem>
-                    ))}
+                    )}
                   </Select>
 
                   <Button

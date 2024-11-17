@@ -129,11 +129,11 @@ export default function CardReaderPage() {
           ) : (
             <>
               <img
-                className="h-[10rem] drop-shadow-md"
+                className="h-[12rem] drop-shadow-md"
                 src={IdCardSVG}
                 alt="id-card"
               />
-              <div className="flex text-[30pt] font-bold">
+              <div className="flex text-[20pt] font-bold">
                 Scan you student ID Card
               </div>
             </>

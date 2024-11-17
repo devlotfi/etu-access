@@ -55,6 +55,17 @@ export class AccessControlsService {
     });
   }
 
+  public async availableAccessControls(
+    userId: string,
+  ): Promise<AccessControlDTO[]> {
+    return await this.databaseService.accessControl.findMany({
+      where: {
+        userId,
+        open: true,
+      },
+    });
+  }
+
   public async addAccessControl(
     addAccessControlDto: AddAccessControlDTO,
     userId: string,

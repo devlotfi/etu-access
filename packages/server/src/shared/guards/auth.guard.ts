@@ -18,11 +18,13 @@ export class AuthGuard implements CanActivate {
 
     const authorization = req.headers.authorization;
     if (!authorization) {
+      console.log('no authorization');
       return false;
     }
 
     const accessToken = authorization.split(' ')[1];
     if (!accessToken) {
+      console.log('no access token');
       return false;
     }
 
@@ -31,7 +33,7 @@ export class AuthGuard implements CanActivate {
       payload = await this.tokenService.verifyAccessToken(accessToken);
     } catch (error) {
       console.log(error);
-
+      console.log('invalid token');
       return false;
     }
 
@@ -42,10 +44,12 @@ export class AuthGuard implements CanActivate {
       (isAdmin === true && payload.isAdmin === false) ||
       (isAdmin === false && payload.isAdmin === true)
     ) {
+      console.log('admin status error');
       return false;
     }
 
     const tokenType = this.reflector.get(TokenOfType, context.getHandler());
+    console.log('token type error', tokenType, payload.tokenType);
     if (
       (tokenType === TokenType.USER &&
         payload.tokenType === TokenType.ACCESS_POINT) ||

@@ -64,7 +64,6 @@ export class StudentsController {
   }
 
   @Post('/student-id-cards')
-  @IsAdmin(true)
   @TokenOfType(TokenType.ACCESS_POINT)
   @UseGuards(AuthGuard)
   @ApiBearerAuth()

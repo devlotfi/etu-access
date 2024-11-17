@@ -34,7 +34,7 @@ export class AccessControlsController {
     private readonly accessControlsService: AccessControlsService,
   ) {}
 
-  @Get()
+  @Get('all')
   @TokenOfType(TokenType.USER)
   @UseGuards(AuthGuard)
   @ApiBearerAuth()
@@ -52,7 +52,7 @@ export class AccessControlsController {
     );
   }
 
-  @Get(':id')
+  @Get('all/:id')
   @TokenOfType(TokenType.USER)
   @UseGuards(AuthGuard)
   @ApiBearerAuth()
@@ -70,6 +70,20 @@ export class AccessControlsController {
       idParams.id,
       userId,
     );
+  }
+
+  @Get('available')
+  @TokenOfType(TokenType.ACCESS_POINT)
+  @UseGuards(AuthGuard)
+  @ApiBearerAuth()
+  @ApiOkResponse({
+    type: [AccessControlDTO],
+  })
+  @ApiNotFoundResponse({
+    type: () => ApiException,
+  })
+  public async availableAccessControls(@CurrentUser() userId: string) {
+    return await this.accessControlsService.availableAccessControls(userId);
   }
 
   @Post()

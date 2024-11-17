@@ -1,20 +1,17 @@
 import {
   faComputer,
   faGear,
-  faLanguage,
   faMoon,
   faPaintBrush,
   faSun,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Card, CardBody, Divider, Select, SelectItem } from '@nextui-org/react';
-import { useTranslation } from 'react-i18next';
+import { Card, CardBody, Select, SelectItem } from '@nextui-org/react';
 import { useContext } from 'react';
 import { Heading, ThemeContext, ThemeOptions } from '@etu-access/lib';
 
 export function SettingsPage() {
   const { setTheme, themeOption } = useContext(ThemeContext);
-  const { t, i18n } = useTranslation();
 
   return (
     <div className="flex flex-1 flex-col items-center">
@@ -29,7 +26,7 @@ export function SettingsPage() {
           <CardBody className="space-y-3">
             <Select
               variant="bordered"
-              label={t('theme')}
+              label="Theme"
               defaultSelectedKeys={[themeOption]}
               onChange={(event) => setTheme(event.target.value as ThemeOptions)}
               startContent={
@@ -40,13 +37,13 @@ export function SettingsPage() {
                 startContent={<FontAwesomeIcon icon={faSun}></FontAwesomeIcon>}
                 key={ThemeOptions.LIGHT}
               >
-                {t('light')}
+                Light
               </SelectItem>
               <SelectItem
                 startContent={<FontAwesomeIcon icon={faMoon}></FontAwesomeIcon>}
                 key={ThemeOptions.DARK}
               >
-                {t('dark')}
+                Dark
               </SelectItem>
               <SelectItem
                 startContent={
@@ -54,42 +51,7 @@ export function SettingsPage() {
                 }
                 key={ThemeOptions.SYSTEM}
               >
-                {t('system')}
-              </SelectItem>
-            </Select>
-            <Divider></Divider>
-            <Select
-              variant="bordered"
-              label={t('language')}
-              defaultSelectedKeys={[i18n.language]}
-              onChange={(event) => i18n.changeLanguage(event.target.value)}
-              startContent={
-                <FontAwesomeIcon icon={faLanguage}></FontAwesomeIcon>
-              }
-            >
-              <SelectItem
-                startContent={
-                  <FontAwesomeIcon icon={faLanguage}></FontAwesomeIcon>
-                }
-                key={'en'}
-              >
-                English
-              </SelectItem>
-              <SelectItem
-                startContent={
-                  <FontAwesomeIcon icon={faLanguage}></FontAwesomeIcon>
-                }
-                key={'fr'}
-              >
-                Français
-              </SelectItem>
-              <SelectItem
-                startContent={
-                  <FontAwesomeIcon icon={faLanguage}></FontAwesomeIcon>
-                }
-                key={'ar'}
-              >
-                العربية
+                System
               </SelectItem>
             </Select>
           </CardBody>

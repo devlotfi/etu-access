@@ -39,7 +39,7 @@ model Student {
 }
 
 model AccessControl {
-  accessHistories Attendance[]
+  attendanceExports AttendanceExport[]
 
   id        String   @id @default(uuid())
   userId    String
@@ -51,11 +51,20 @@ model AccessControl {
 }
 
 model Attendance {
-  student       Student       @relation(fields: [studentId], references: [id])
+  student          Student          @relation(fields: [studentId], references: [id])
+  attendanceExport AttendanceExport @relation(fields: [attendanceExportId], references: [id])
+
+  id                 String   @id @default(uuid())
+  studentId          String
+  attendanceExportId String
+  timestamp          DateTime @default(now())
+}
+
+model AttendanceExport {
+  attendances   Attendance[]
   accessControl AccessControl @relation(fields: [accessControlId], references: [id])
 
   id              String   @id @default(uuid())
-  studentId       String
   accessControlId String
   timestamp       DateTime @default(now())
 }

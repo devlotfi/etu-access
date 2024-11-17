@@ -7,8 +7,8 @@ import {
 } from '@etu-access/lib';
 import DashboardLayout from './layout/dashboard-layout';
 import HomePage from './pages/home-page';
-import SavedCardsPage from './pages/saved-cards-page';
 import CardReaderPage from './pages/card-reader-page';
+import AttendingStudentsListPage from './pages/attending-students-page';
 
 export const router = createHashRouter([
   {
@@ -40,8 +40,8 @@ export const router = createHashRouter([
         element: <SettingsPage></SettingsPage>,
       },
       {
-        path: '/dashboard/saved-cards',
-        element: <SavedCardsPage></SavedCardsPage>,
+        path: '/dashboard/attending-students',
+        element: <AttendingStudentsListPage></AttendingStudentsListPage>,
       },
       {
         path: '/dashboard/card-reader',

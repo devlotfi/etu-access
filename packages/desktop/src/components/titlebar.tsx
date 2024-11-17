@@ -18,7 +18,6 @@ export default function TitleBar() {
     >
       <div className="flex items-center px-[0.5rem] space-x-2 select-none">
         <img className="h-[1.3rem]" src={LogoSVG} alt="logo" />
-        <div className="flex font-['Fugaz_One']">EtuAccess</div>
       </div>
 
       <div className="flex px-[0.2rem] space-x-1">

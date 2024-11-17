@@ -9,7 +9,7 @@ export default function AccessControlsListPage() {
   const { handleChange, handleSubmit, setFieldValue, values, search } =
     usePagination();
 
-  const { isLoading, data } = $api.useQuery('get', '/access-controls', {
+  const { isLoading, data } = $api.useQuery('get', '/access-controls/all', {
     params: {
       query: {
         page: values.page,

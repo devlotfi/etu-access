@@ -79,7 +79,7 @@ export interface paths {
         patch: operations["UsersController_editUser"];
         trace?: never;
     };
-    "/access-controls": {
+    "/access-controls/all": {
         parameters: {
             query?: never;
             header?: never;
@@ -87,6 +87,54 @@ export interface paths {
             cookie?: never;
         };
         get: operations["AccessControlsController_accessControls"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/access-controls/all/{id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["AccessControlsController_accessControlDetails"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/access-controls/available": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["AccessControlsController_availableAccessControls"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/access-controls": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
         put?: never;
         post: operations["AccessControlsController_addAccessControl"];
         delete?: never;
@@ -102,7 +150,7 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        get: operations["AccessControlsController_accessControlDetails"];
+        get?: never;
         put?: never;
         post?: never;
         delete: operations["AccessControlsController_deleteAccessControl"];
@@ -551,6 +599,62 @@ export interface operations {
             };
         };
     };
+    AccessControlsController_accessControlDetails: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AccessControlDTO"];
+                };
+            };
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ApiException"];
+                };
+            };
+        };
+    };
+    AccessControlsController_availableAccessControls: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AccessControlDTO"][];
+                };
+            };
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ApiException"];
+                };
+            };
+        };
+    };
     AccessControlsController_addAccessControl: {
         parameters: {
             query?: never;
@@ -573,35 +677,6 @@ export interface operations {
                 };
             };
             403: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["ApiException"];
-                };
-            };
-        };
-    };
-    AccessControlsController_accessControlDetails: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                id: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["AccessControlDTO"];
-                };
-            };
-            404: {
                 headers: {
                     [name: string]: unknown;
                 };

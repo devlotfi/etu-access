@@ -4,7 +4,6 @@ import './index.css';
 import App from './App.tsx';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { NextUIProvider } from '@nextui-org/react';
-import './i18next.ts';
 import { AuthProvider, ThemeProvider } from '@etu-access/lib';
 
 const queryClient = new QueryClient();

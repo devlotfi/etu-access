@@ -7,27 +7,15 @@ import {
   Button,
 } from '@nextui-org/react';
 import { useQueryClient } from '@tanstack/react-query';
-import { $api } from '../api/openapi-react-query-client';
-import { InMemoryStore } from '../api/in-memory-store';
+import { AttendanceStore } from '../attendance-store';
 
 interface Props {
   isOpen: boolean;
   onOpenChange: () => void;
 }
 
-export function SignOutModal({ isOpen, onOpenChange }: Props) {
+export function ResetAttendanceListModal({ isOpen, onOpenChange }: Props) {
   const queryClient = useQueryClient();
-
-  const { mutate, isPending } = $api.useMutation('post', '/auth/sign-out', {
-    onSuccess() {
-      InMemoryStore.accessToken = undefined;
-      InMemoryStore.refreshToken = undefined;
-      queryClient.resetQueries({
-        exact: false,
-        queryKey: ['get', '/auth/sign-in/refresh-token'],
-      });
-    },
-  });
 
   return (
     <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
@@ -36,7 +24,7 @@ export function SignOutModal({ isOpen, onOpenChange }: Props) {
           <>
             <ModalHeader className="flex flex-col gap-1">Sign out</ModalHeader>
             <ModalBody>
-              <p>Are you sure you want to sign out ?</p>
+              <p>Are you sure you want to reset the attendance list ?</p>
             </ModalBody>
             <ModalFooter>
               <Button color="danger" variant="light" onPress={onClose}>
@@ -44,14 +32,16 @@ export function SignOutModal({ isOpen, onOpenChange }: Props) {
               </Button>
               <Button
                 color="danger"
-                isLoading={isPending}
-                onPress={() =>
-                  mutate({
-                    credentials: 'include',
-                  })
-                }
+                onPress={() => {
+                  AttendanceStore.resetAttendance();
+                  queryClient.resetQueries({
+                    exact: false,
+                    queryKey: ['post', '/students/student-id-cards'],
+                  });
+                  onClose();
+                }}
               >
-                Sign out
+                Reset
               </Button>
             </ModalFooter>
           </>

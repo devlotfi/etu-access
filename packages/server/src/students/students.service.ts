@@ -62,7 +62,7 @@ export class StudentsService {
     studentsByIdCardsDto: StudentsByIdCardsDTO,
   ): Promise<StudentsResponseDTO> {
     const whereQuery: Prisma.StudentWhereInput = {
-      id: {
+      cardId: {
         in: studentsByIdCardsDto.studentIdCards,
       },
       OR: [
