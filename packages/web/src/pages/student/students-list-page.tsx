@@ -68,6 +68,10 @@ const columns = [
     label: 'Practical Work Group',
   },
   {
+    key: 'cardId',
+    label: 'Card Id',
+  },
+  {
     key: 'id',
     label: 'Id',
   },
