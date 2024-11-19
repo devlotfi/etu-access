@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { Type } from 'class-transformer';
-import { IsDate, Length, ValidateNested } from 'class-validator';
+import { Length, ValidateNested } from 'class-validator';
 
 class CreateAttendanceDTO {
   @ApiProperty()
@@ -8,7 +8,6 @@ class CreateAttendanceDTO {
   public cardId: string;
 
   @ApiProperty({ type: () => Date })
-  @IsDate()
   public timestamp: Date;
 }
 

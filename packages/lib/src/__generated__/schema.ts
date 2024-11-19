@@ -207,6 +207,22 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/attendance/export/{id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["AttendanceController_exportAttendanceList"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
 }
 export type webhooks = Record<string, never>;
 export interface components {
@@ -325,6 +341,26 @@ export interface components {
             section: string;
             directedWorkGroup: string;
             practicalWorkGroup: string;
+        };
+        CreateAttendanceDTO: {
+            cardId: string;
+            /** Format: date-time */
+            timestamp: string;
+        };
+        ExportAttandanceListDTO: {
+            attendanceList: components["schemas"]["CreateAttendanceDTO"][];
+        };
+        AttendanceDTO: {
+            id: string;
+            studentId: string;
+            attendanceExportId: string;
+            /** Format: date-time */
+            timestamp: string;
+        };
+        AttendanceExportDTO: {
+            id: string;
+            accessControlId: string;
+            attendances: components["schemas"]["AttendanceDTO"][];
         };
         PaginationResult: {
             pages: number;
@@ -946,6 +982,39 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["StudentsResponseDTO"];
+                };
+            };
+        };
+    };
+    AttendanceController_exportAttendanceList: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["ExportAttandanceListDTO"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AttendanceExportDTO"];
+                };
+            };
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ApiException"];
                 };
             };
         };

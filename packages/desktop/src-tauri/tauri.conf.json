@@ -15,7 +15,8 @@
         "title": "etu-access",
         "width": 900,
         "height": 600,
-        "decorations": false
+        "decorations": false,
+        "transparent": true
       }
     ],
     "security": {

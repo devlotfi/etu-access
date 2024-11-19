@@ -9,14 +9,13 @@ import {
   ModalContent,
   ModalHeader,
   ModalBody,
-  ModalFooter,
   Button,
   Select,
   SelectItem,
 } from '@nextui-org/react';
-import { useQueryClient } from '@tanstack/react-query';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
+import { AttendanceStore } from '../attendance-store';
 
 interface Props {
   isOpen: boolean;
@@ -24,12 +23,12 @@ interface Props {
 }
 
 export function ExportAttandanceListModal({ isOpen, onOpenChange }: Props) {
-  const queryClient = useQueryClient();
-
   const { data, isLoading } = $api.useQuery(
     'get',
     '/access-controls/available',
   );
+
+  const { mutate } = $api.useMutation('post', '/attendance/export/{id}');
 
   const { values, handleChange, handleSubmit } = useFormik({
     initialValues: {
@@ -39,7 +38,21 @@ export function ExportAttandanceListModal({ isOpen, onOpenChange }: Props) {
       accessControlId: yup.string().required(),
     }),
     async onSubmit(values) {
-      //mutateConnect(values.portName);
+      console.log(values);
+
+      mutate({
+        params: {
+          path: {
+            id: values.accessControlId,
+          },
+        },
+        body: {
+          attendanceList: AttendanceStore.attendanceList.map((attendance) => ({
+            ...attendance,
+            timestamp: attendance.timestamp.toString(),
+          })),
+        },
+      });
     },
   });
 
@@ -77,6 +90,7 @@ export function ExportAttandanceListModal({ isOpen, onOpenChange }: Props) {
                   )}
                 </Select>
                 <Button
+                  type="submit"
                   startContent={
                     <FontAwesomeIcon
                       icon={faArrowUpRightFromSquare}
