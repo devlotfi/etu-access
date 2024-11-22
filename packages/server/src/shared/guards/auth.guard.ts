@@ -49,7 +49,7 @@ export class AuthGuard implements CanActivate {
     }
 
     const tokenType = this.reflector.get(TokenOfType, context.getHandler());
-    console.log('token type error', tokenType, payload.tokenType);
+    console.log(tokenType, payload.tokenType);
     if (
       (tokenType === TokenType.USER &&
         payload.tokenType === TokenType.ACCESS_POINT) ||

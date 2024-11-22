@@ -19,7 +19,6 @@ import { IsAdmin } from 'src/shared/decorators/is-admin.decorator';
 import { AuthGuard } from 'src/shared/guards/auth.guard';
 import { ApiException } from 'src/shared/types/api-exception';
 import { IdParams } from 'src/shared/types/id-params';
-import { PaginationQuery } from 'src/shared/types/pagination-query';
 import { StudentsService } from './students.service';
 import { StudentsResponseDTO } from './types/students-response-dto';
 import { StudentDTO } from './types/student-dto';
@@ -28,6 +27,7 @@ import { EditStudentDTO } from './types/edit-student-dto';
 import { TokenType } from 'src/auth/types/token-type';
 import { TokenOfType } from 'src/shared/decorators/token-type.decorator';
 import { StudentsByIdCardsDTO } from './types/students-by-id-cards-dto';
+import { PaginationSearchQuery } from 'src/shared/types/pagination-search-query';
 
 @Controller('students')
 export class StudentsController {
@@ -41,10 +41,10 @@ export class StudentsController {
   @ApiOkResponse({
     type: () => StudentsResponseDTO,
   })
-  public async students(@Query() paginationQuery: PaginationQuery) {
+  public async students(@Query() paginationSearchQuery: PaginationSearchQuery) {
     return await this.studentsService.students(
-      paginationQuery.search,
-      paginationQuery.page,
+      paginationSearchQuery.search,
+      paginationSearchQuery.page,
     );
   }
 
@@ -71,12 +71,12 @@ export class StudentsController {
     type: () => StudentsResponseDTO,
   })
   public async studentsByCardIds(
-    @Query() paginationQuery: PaginationQuery,
+    @Query() paginationSearchQuery: PaginationSearchQuery,
     @Body() studentsByIdCardsDto: StudentsByIdCardsDTO,
   ) {
     return await this.studentsService.studentsByCardIds(
-      paginationQuery.search,
-      paginationQuery.page,
+      paginationSearchQuery.search,
+      paginationSearchQuery.page,
       studentsByIdCardsDto,
     );
   }

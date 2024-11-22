@@ -20,15 +20,24 @@ import { AttendanceStore } from '../attendance-store';
 interface Props {
   isOpen: boolean;
   onOpenChange: () => void;
+  onClose: () => void;
 }
 
-export function ExportAttandanceListModal({ isOpen, onOpenChange }: Props) {
+export function ExportAttandanceListModal({
+  isOpen,
+  onOpenChange,
+  onClose,
+}: Props) {
   const { data, isLoading } = $api.useQuery(
     'get',
     '/access-controls/available',
   );
 
-  const { mutate } = $api.useMutation('post', '/attendance/export/{id}');
+  const { mutate } = $api.useMutation('post', '/attendance/export/{id}', {
+    onSuccess() {
+      onClose();
+    },
+  });
 
   const { values, handleChange, handleSubmit } = useFormik({
     initialValues: {

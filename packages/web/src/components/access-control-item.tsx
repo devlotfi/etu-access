@@ -21,9 +21,9 @@ function AccessControlItem({ accessControl }: Props) {
 
   return (
     <Card shadow="none" className="border border-divider w-full">
-      <CardBody>
+      <CardBody className="pl-[1.5rem]">
         <div className="flex text-[17pt] font-bold">{accessControl.name}</div>
-        <div className="flex space-x-1  text-[13pt]">
+        <div className="flex space-x-1  text-[12pt]">
           <div className="flex">Status: </div>
           <div
             className={cn(

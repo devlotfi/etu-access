@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsOptional, Length } from 'class-validator';
+import { IsDateString, IsOptional, Length } from 'class-validator';
 
 export class EditStudentDTO {
   @ApiProperty({ required: false })
@@ -14,6 +14,7 @@ export class EditStudentDTO {
 
   @ApiProperty({ type: () => Date, required: false })
   @IsOptional()
+  @IsDateString()
   public dateOfBirth?: Date;
 
   @ApiProperty({ required: false })

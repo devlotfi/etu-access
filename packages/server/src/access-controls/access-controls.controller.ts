@@ -21,12 +21,12 @@ import { TokenOfType } from 'src/shared/decorators/token-type.decorator';
 import { AuthGuard } from 'src/shared/guards/auth.guard';
 import { ApiException } from 'src/shared/types/api-exception';
 import { IdParams } from 'src/shared/types/id-params';
-import { PaginationQuery } from 'src/shared/types/pagination-query';
 import { CurrentUser } from 'src/shared/decorators/current-user.decorator';
 import { AccessControlsResponseDTO } from './types/access-controls-response-dto';
 import { AccessControlDTO } from './types/access-control-dto';
 import { AddAccessControlDTO } from './types/add-access-control-dto';
 import { EditAccessControlDTO } from './types/edit-access-control-dto';
+import { PaginationSearchQuery } from 'src/shared/types/pagination-search-query';
 
 @Controller('access-controls')
 export class AccessControlsController {
@@ -42,12 +42,12 @@ export class AccessControlsController {
     type: () => AccessControlsResponseDTO,
   })
   public async accessControls(
-    @Query() paginationQuery: PaginationQuery,
+    @Query() paginationSearchQuery: PaginationSearchQuery,
     @CurrentUser() userId: string,
   ) {
     return await this.accessControlsService.accessControls(
-      paginationQuery.search,
-      paginationQuery.page,
+      paginationSearchQuery.search,
+      paginationSearchQuery.page,
       userId,
     );
   }

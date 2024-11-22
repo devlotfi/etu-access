@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { Length } from 'class-validator';
+import { IsDateString, Length } from 'class-validator';
 
 export class AddStudentDTO {
   @ApiProperty()
@@ -11,6 +11,7 @@ export class AddStudentDTO {
   public lastName: string;
 
   @ApiProperty({ type: () => Date })
+  @IsDateString()
   public dateOfBirth: Date;
 
   @ApiProperty()

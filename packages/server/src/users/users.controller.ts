@@ -23,10 +23,10 @@ import { EditUserDTO } from './types/edit-user-dto';
 import { AuthGuard } from 'src/shared/guards/auth.guard';
 import { IsAdmin } from 'src/shared/decorators/is-admin.decorator';
 import { UsersResponseDTO } from './types/users-response-dto';
-import { PaginationQuery } from 'src/shared/types/pagination-query';
 import { IdParams } from '../shared/types/id-params';
 import { TokenOfType } from 'src/shared/decorators/token-type.decorator';
 import { TokenType } from 'src/auth/types/token-type';
+import { PaginationSearchQuery } from 'src/shared/types/pagination-search-query';
 
 @Controller('users')
 export class UsersController {
@@ -40,10 +40,10 @@ export class UsersController {
   @ApiOkResponse({
     type: () => UsersResponseDTO,
   })
-  public async users(@Query() paginationQuery: PaginationQuery) {
+  public async users(@Query() paginationSearchQuery: PaginationSearchQuery) {
     return await this.usersService.users(
-      paginationQuery.search,
-      paginationQuery.page,
+      paginationSearchQuery.search,
+      paginationSearchQuery.page,
     );
   }
 

@@ -52,7 +52,7 @@ export default function DashboardNavbarDropdown({ openSignOutModal }: Props) {
       >
         <DropdownSection showDivider>
           <DropdownItem textValue="User">
-            <div className="flex font-bold text-[13pt]">{'user'}: </div>
+            <div className="flex font-bold text-[13pt]">User: </div>
             <div className="flex text-[10pt]">
               {user.firstName} {user.lastName}
             </div>
@@ -67,7 +67,7 @@ export default function DashboardNavbarDropdown({ openSignOutModal }: Props) {
           closeOnSelect
           startContent={<FontAwesomeIcon icon={faPowerOff}></FontAwesomeIcon>}
         >
-          {'signOut'}
+          Sign out
         </DropdownItem>
       </DropdownMenu>
     </Dropdown>

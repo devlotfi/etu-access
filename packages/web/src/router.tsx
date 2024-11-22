@@ -19,6 +19,7 @@ import {
   SettingsPage,
   SignInPage,
 } from '@etu-access/lib';
+import AttendanceExportsListPage from './pages/attendance/attendance-exports-list-page';
 
 export const router = createBrowserRouter([
   {
@@ -96,6 +97,10 @@ export const router = createBrowserRouter([
             element: <StudentDetailsPage></StudentDetailsPage>,
           },
         ],
+      },
+      {
+        path: '/dashboard/attendance-exports/:id',
+        element: <AttendanceExportsListPage></AttendanceExportsListPage>,
       },
       {
         path: '/dashboard/settings',

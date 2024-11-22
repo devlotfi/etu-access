@@ -6,7 +6,12 @@ import {
   Switch,
   useDisclosure,
 } from '@nextui-org/react';
-import { faDoorOpen, faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
+import {
+  faArrowUpRightFromSquare,
+  faDoorOpen,
+  faPen,
+  faTrash,
+} from '@fortawesome/free-solid-svg-icons';
 import * as yup from 'yup';
 import { useFormik } from 'formik';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -148,11 +153,28 @@ function DetailsForm({ accessControl }: DetailsFormProps) {
       <DeleteModal isOpen={isOpen} onOpenChange={onOpenChange}></DeleteModal>
       <div className="flex flex-col items-center">
         <div className="flex flex-col w-full max-w-screen-md px-[1rem] pb-[5rem]">
-          <Heading
-            icon={faDoorOpen}
-            text="Access control details"
-            classNames={{ wrapper: 'py-[1rem]' }}
-          ></Heading>
+          <div className="flex items-center justify-between">
+            <Heading
+              icon={faDoorOpen}
+              text="Access control details"
+              classNames={{ wrapper: 'py-[1rem]' }}
+            ></Heading>
+
+            <Button
+              variant="bordered"
+              className="bg-background"
+              startContent={
+                <FontAwesomeIcon
+                  icon={faArrowUpRightFromSquare}
+                ></FontAwesomeIcon>
+              }
+              onPress={() =>
+                navigate(`/dashboard/attendance-exports/${accessControl.id}`)
+              }
+            >
+              Exports list
+            </Button>
+          </div>
 
           <Card className="border-divider border" shadow="none">
             <CardBody>

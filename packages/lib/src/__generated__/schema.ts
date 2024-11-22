@@ -223,6 +223,38 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/attendance/{id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["AttendanceController_accessControls"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/attendance/students/{id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["AttendanceController_attendanceExportStudents"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
 }
 export type webhooks = Record<string, never>;
 export interface components {
@@ -350,17 +382,27 @@ export interface components {
         ExportAttandanceListDTO: {
             attendanceList: components["schemas"]["CreateAttendanceDTO"][];
         };
-        AttendanceDTO: {
-            id: string;
-            studentId: string;
-            attendanceExportId: string;
-            /** Format: date-time */
-            timestamp: string;
+        CountInfo: {
+            attendances: number;
         };
         AttendanceExportDTO: {
             id: string;
             accessControlId: string;
-            attendances: components["schemas"]["AttendanceDTO"][];
+            /** Format: date-time */
+            timestamp: string;
+            _count: components["schemas"]["CountInfo"];
+        };
+        AttendanceExportsResponseDTO: {
+            pages: number;
+            items: components["schemas"]["AttendanceExportDTO"][];
+        };
+        AttendanceDTO: {
+            id: string;
+            studentId: string;
+            student: components["schemas"]["StudentDTO"];
+            attendanceExportId: string;
+            /** Format: date-time */
+            timestamp: string;
         };
         PaginationResult: {
             pages: number;
@@ -1015,6 +1057,50 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["ApiException"];
+                };
+            };
+        };
+    };
+    AttendanceController_accessControls: {
+        parameters: {
+            query: {
+                page: number;
+            };
+            header?: never;
+            path: {
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AttendanceExportsResponseDTO"];
+                };
+            };
+        };
+    };
+    AttendanceController_attendanceExportStudents: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AttendanceDTO"][];
                 };
             };
         };

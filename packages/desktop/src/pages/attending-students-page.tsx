@@ -160,6 +160,7 @@ export default function AttendingStudentsListPage() {
     isOpen: exportAttendanceListModalIsOpen,
     onOpenChange: exportAttendanceListModalonOpenChange,
     onOpen: exportAttendanceListModalOnOpen,
+    onClose: exportAttendanceListModalOnClose,
   } = useDisclosure();
 
   const { isLoading, data } = $api.useQuery(
@@ -244,6 +245,7 @@ export default function AttendingStudentsListPage() {
       ></ResetAttendanceListModal>
       <ExportAttandanceListModal
         isOpen={exportAttendanceListModalIsOpen}
+        onClose={exportAttendanceListModalOnClose}
         onOpenChange={exportAttendanceListModalonOpenChange}
       ></ExportAttandanceListModal>
     </div>

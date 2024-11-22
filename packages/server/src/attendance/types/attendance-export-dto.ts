@@ -1,5 +1,9 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { AttendanceDTO } from './attendance-dto';
+
+class CountInfo {
+  @ApiProperty()
+  public attendances: number;
+}
 
 export class AttendanceExportDTO {
   @ApiProperty()
@@ -8,6 +12,9 @@ export class AttendanceExportDTO {
   @ApiProperty()
   public accessControlId: string;
 
-  @ApiProperty({ type: [AttendanceDTO] })
-  public attendances: AttendanceDTO[];
+  @ApiProperty({ type: () => Date })
+  public timestamp: Date;
+
+  @ApiProperty()
+  public _count: CountInfo;
 }
