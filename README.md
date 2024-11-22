@@ -9,17 +9,36 @@ An automatic student attendance system using student id cards (These card are 12
 - [Preview](#-preview)
 
 # 💻 Tech stack
-<img src="https://skillicons.dev/icons?i=html,css,typescript,tailwind,react,nodejs,nest,prisma,tauri,rust&perline=5" />
+<img src="https://skillicons.dev/icons?i=html,css,typescript,tailwind,react,nodejs,nest,prisma,tauri,rust,arduino&perline=5" />
 
 # 📂 Project Setup
 
-## Requirements
+## Arduino setup
+<img src="https://github.com/devlotfi/etu-access/blob/main/github-assets/arduino-setup.png">
+
+# Parts
+- Breadboard (Optional)
+- Jumper wires
+- Arduino Nano
+- Rdm6300 (Antenna is included)
+- Buzzer
+- Green LED
+- 220Ω Resistor
+- 
+
+
+## Software requirements
 - Node JS
 - Yarn
 - Rust
+- Arduino IDE
 
 ## Install
 
+### Arduino
+**Upload the arduino program provideed in th repo**
+
+### NPM deps
 ```bash
 $ yarn
 ```
