@@ -24,7 +24,6 @@ An automatic student attendance system using student id cards (These card are 12
 - Buzzer
 - Green LED
 - 220Ω Resistor
-- 
 
 
 ## Software requirements
@@ -63,9 +62,22 @@ $ yarn run start:dev
 
 # 📷 Preview
 
-<img src="https://github.com/devlotfi/portfolio-v1/blob/main/github-assets/preview-1.png">
-<img src="https://github.com/devlotfi/portfolio-v1/blob/main/github-assets/preview-2.png">
-<img src="https://github.com/devlotfi/portfolio-v1/blob/main/github-assets/preview-3.png">
-<img src="https://github.com/devlotfi/portfolio-v1/blob/main/github-assets/preview-4.png">
-<img src="https://github.com/devlotfi/portfolio-v1/blob/main/github-assets/preview-5.png">
-<img src="https://github.com/devlotfi/portfolio-v1/blob/main/github-assets/preview-6.png">
+## Access point desktop app
+This app is used to read student id card by communicating with the arduino and allows exporting them to the server
+
+<img src="https://github.com/devlotfi/etu-access/blob/main/github-assets/access-point/preview-1.png">
+<img src="https://github.com/devlotfi/etu-access/blob/main/github-assets/access-point/preview-2.png">
+<img src="https://github.com/devlotfi/etu-access/blob/main/github-assets/access-point/preview-3.png">
+<img src="https://github.com/devlotfi/etu-access/blob/main/github-assets/access-point/preview-4.png">
+<img src="https://github.com/devlotfi/etu-access/blob/main/github-assets/access-point/preview-5.png">
+<img src="https://github.com/devlotfi/etu-access/blob/main/github-assets/access-point/preview-6.png">
+
+## Admin panel
+This app is used for general management its features depend on the admin ststus of the connected user, it allows managing users, students, access-points, and exported attendance lists
+
+<img src="https://github.com/devlotfi/etu-access/blob/main/github-assets/admin-panel/preview-1.png">
+<img src="https://github.com/devlotfi/etu-access/blob/main/github-assets/admin-panel/preview-2.png">
+<img src="https://github.com/devlotfi/etu-access/blob/main/github-assets/admin-panel/preview-3.png">
+<img src="https://github.com/devlotfi/etu-access/blob/main/github-assets/admin-panel/preview-4.png">
+<img src="https://github.com/devlotfi/etu-access/blob/main/github-assets/admin-panel/preview-5.png">
+<img src="https://github.com/devlotfi/etu-access/blob/main/github-assets/admin-panel/preview-6.png">
