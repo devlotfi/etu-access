@@ -51,8 +51,8 @@ model AccessControl {
 }
 
 model Attendance {
-  student          Student          @relation(fields: [studentId], references: [id])
-  attendanceExport AttendanceExport @relation(fields: [attendanceExportId], references: [id])
+  student          Student          @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  attendanceExport AttendanceExport @relation(fields: [attendanceExportId], references: [id], onDelete: Cascade)
 
   id                 String   @id @default(uuid())
   studentId          String
@@ -62,7 +62,7 @@ model Attendance {
 
 model AttendanceExport {
   attendances   Attendance[]
-  accessControl AccessControl @relation(fields: [accessControlId], references: [id])
+  accessControl AccessControl @relation(fields: [accessControlId], references: [id], onDelete: Cascade)
 
   id              String   @id @default(uuid())
   accessControlId String
