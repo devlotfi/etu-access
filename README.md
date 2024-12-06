@@ -9,7 +9,6 @@ An automatic student attendance system using student id cards (These card are 12
 - [Preview](#-preview)
 
 # 💻 Tech stack
-<img src="https://skillicons.dev/icons?i=html,css,typescript,tailwind,react,nodejs,nest,prisma,tauri,rust,arduino&perline=5" />
 
 ## Frontend
 
