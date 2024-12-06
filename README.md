@@ -24,7 +24,6 @@ An automatic student attendance system using student id cards (These card are 12
   <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/formik.svg">
   <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/nextui.svg">
   <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/reactquery.svg">
-  <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/arduino.svg">
 </p>
 
 ## Backend
@@ -34,6 +33,13 @@ An automatic student attendance system using student id cards (These card are 12
   <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/nestjs.svg">
   <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/prisma.svg">
   <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/jwt.svg">
+</p>
+
+## Other
+
+<p float="left">
+  <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/jwt.svg">
+  <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/arduino.svg">
 </p>
 
 
