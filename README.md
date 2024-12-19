@@ -9,7 +9,40 @@ An automatic student attendance system using student id cards (These card are 12
 - [Preview](#-preview)
 
 # 💻 Tech stack
-<img src="https://skillicons.dev/icons?i=html,css,typescript,tailwind,react,nodejs,nest,prisma,tauri,rust,arduino&perline=5" />
+
+## Frontend
+
+<p float="left">
+  <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/html.svg">
+  <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/css.svg">
+  <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/ts.svg">
+  <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/tailwind.svg">
+  <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/react.svg">
+  <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/tauri.svg">
+  <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/rust.svg">
+  <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/fontawesome.svg">
+  <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/formik.svg">
+  <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/nextui.svg">
+  <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/reactquery.svg">
+  <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/vite.svg">
+</p>
+
+## Backend
+
+<p float="left">
+  <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/nodejs.svg">
+  <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/nestjs.svg">
+  <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/prisma.svg">
+  <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/postgres.svg">
+</p>
+
+## Other
+
+<p float="left">
+  <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/jwt.svg">
+  <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/arduino.svg">
+</p>
+
 
 # 📂 Project Setup
 
