@@ -1,4 +1,4 @@
-import { Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router';
 import DashboardNavbar from '../components/dashboard-navbar';
 import DashboardSidebar from '../components/dashboard-sidebar';
 import { useContext } from 'react';

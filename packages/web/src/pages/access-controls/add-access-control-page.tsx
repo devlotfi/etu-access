@@ -4,7 +4,7 @@ import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useQueryClient } from '@tanstack/react-query';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 import { $api, ValidatedInput } from '@etu-access/lib';
 import { Heading } from '@etu-access/lib';
 
@@ -39,7 +39,7 @@ export default function AddAccessControlPage() {
           exact: false,
           queryKey: ['get', '/access-controls'],
         });
-        navigate('/dashboard');
+        navigate('/dashboard/access-controls');
       },
     },
   );

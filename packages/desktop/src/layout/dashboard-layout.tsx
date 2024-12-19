@@ -8,7 +8,7 @@ import { faHome } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Avatar, Button, cn } from '@nextui-org/react';
 import { useContext } from 'react';
-import { Outlet, useNavigate } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router';
 import './dahsboard-layout.css';
 
 export default function DashboardLayout() {

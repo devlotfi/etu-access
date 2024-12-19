@@ -9,7 +9,7 @@ import { Button, cn } from '@nextui-org/react';
 import { useContext } from 'react';
 import SidebarItem from './sidebar-item';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router';
 import { DashboardContext } from '../context/dashboard-context';
 import { AuthContext, LogoSVG } from '@etu-access/lib';
 
@@ -65,7 +65,7 @@ export default function DashboardSidebar() {
         <div className="flex flex-col p-[1rem] space-y-3">
           <SidebarItem
             title="Access controls"
-            active={pathname === '/dashboard'}
+            active={pathname === '/dashboard/access-controls'}
             onPress={() => sidebarNavigate('/dashboard')}
             icon={faDoorOpen}
           ></SidebarItem>

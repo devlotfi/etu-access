@@ -1,5 +1,5 @@
 import { faList, faPlus } from '@fortawesome/free-solid-svg-icons';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router';
 import NavigationTab from '../components/navigation-tab';
 import TabsNavigationLayout from './tabs-navigation-layout';
 

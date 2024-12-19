@@ -7,7 +7,7 @@ import {
 import HomePageTile from '../components/home-page-tile';
 import { ScrollShadow, useDisclosure } from '@nextui-org/react';
 import { SignOutModal } from '@etu-access/lib';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 
 export default function HomePage() {
   const navigate = useNavigate();

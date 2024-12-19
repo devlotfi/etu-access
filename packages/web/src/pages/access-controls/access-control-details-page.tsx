@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router';
 import {
   Button,
   Card,
@@ -75,7 +75,7 @@ function DeleteModal({ isOpen, onOpenChange }: DeleteModalProps) {
           exact: false,
           queryKey: ['get', '/access-controls/{id}'],
         });
-        navigate('/dashboard');
+        navigate('/dashboard/access-controls');
       },
     },
   );

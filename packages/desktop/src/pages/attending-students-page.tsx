@@ -19,7 +19,7 @@ import {
   useDisclosure,
 } from '@nextui-org/react';
 import { memo, useCallback } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 import { $api, components, usePagination, Utils } from '@etu-access/lib';
 import { Heading } from '@etu-access/lib';
 import { AttendanceStore } from '../attendance-store';

@@ -2,7 +2,7 @@ import { faFileExport } from '@fortawesome/free-solid-svg-icons';
 import { Pagination } from '@nextui-org/react';
 import { $api, PageLoading, usePagination } from '@etu-access/lib';
 import { Heading } from '@etu-access/lib';
-import { useParams } from 'react-router-dom';
+import { useParams } from 'react-router';
 import AttendanceExportItem from './attendance-export-item';
 
 export default function AttendanceExportsListPage() {
