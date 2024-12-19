@@ -33,11 +33,15 @@ export function ExportAttandanceListModal({
     '/access-controls/available',
   );
 
-  const { mutate } = $api.useMutation('post', '/attendance/export/{id}', {
-    onSuccess() {
-      onClose();
+  const { mutate, isPending } = $api.useMutation(
+    'post',
+    '/attendance/export/{id}',
+    {
+      onSuccess() {
+        onClose();
+      },
     },
-  });
+  );
 
   const { values, handleChange, handleSubmit } = useFormik({
     initialValues: {
@@ -47,8 +51,6 @@ export function ExportAttandanceListModal({
       accessControlId: yup.string().required(),
     }),
     async onSubmit(values) {
-      console.log(values);
-
       mutate({
         params: {
           path: {
@@ -100,6 +102,7 @@ export function ExportAttandanceListModal({
                 </Select>
                 <Button
                   type="submit"
+                  isLoading={isPending}
                   startContent={
                     <FontAwesomeIcon
                       icon={faArrowUpRightFromSquare}
