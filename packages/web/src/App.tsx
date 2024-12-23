@@ -19,6 +19,7 @@ import StudentsLayout from './layout/students-layout';
 import StudentsListPage from './pages/student/students-list-page';
 import AddStudentPage from './pages/student/add-student-page';
 import StudentDetailsPage from './pages/student/student-details-page';
+import AttendanceExportsListPage from './pages/attendance/attendance-exports-list-page';
 
 export default function App() {
   return (
@@ -90,6 +91,11 @@ export default function App() {
                 element={<StudentDetailsPage></StudentDetailsPage>}
               ></Route>
             </Route>
+
+            <Route
+              path="attendance-exports/:id"
+              element={<AttendanceExportsListPage></AttendanceExportsListPage>}
+            ></Route>
 
             <Route
               path="settings"
