@@ -2,7 +2,6 @@
   "name": "@etu-access/config",
   "main": "src/main.ts",
   "private": true,
-  "packageManager": "yarn@4.5.1",
   "devDependencies": {
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.47",

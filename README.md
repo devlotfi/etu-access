@@ -1,9 +1,11 @@
 <img height="100px" width="100px" src="https://github.com/devlotfi/etu-access/blob/main/github-assets/logo.svg">
 
 # 📜 etu-access
+
 An automatic student attendance system using student id cards (These card are 125khz RFID tags)
 
 # 📌 Contents
+
 - [Tech stack](#-tech-stack)
 - [Project setup](#-project-setup)
 - [Preview](#-preview)
@@ -43,13 +45,14 @@ An automatic student attendance system using student id cards (These card are 12
   <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/arduino.svg">
 </p>
 
-
 # 📂 Project Setup
 
 ## Arduino setup
+
 <img src="https://github.com/devlotfi/etu-access/blob/main/github-assets/arduino-setup.png">
 
 # Parts
+
 - Breadboard (Optional)
 - Jumper wires
 - Arduino Nano
@@ -58,44 +61,50 @@ An automatic student attendance system using student id cards (These card are 12
 - Green LED
 - 220Ω Resistor
 
-
 ## Software requirements
+
 - Node JS
-- Yarn
+- pnpm
 - Rust
 - Arduino IDE
 
 ## Install
 
 ### Arduino
+
 **Upload the arduino program provideed in th repo**
 
 ### NPM deps
+
 ```bash
-$ yarn
+$ pnpm
 ```
 
 ## Development
 
 ### Web app
+
 ```bash
-$ yarn run dev
+$ pnpm run dev
 ```
 
 ### Tauri desktop app
+
 ```bash
-$ yarn run tauri dev
+$ pnpm run tauri dev
 ```
 
 ### Server
+
 ```bash
-$ yarn prisma generate
-$ yarn run start:dev
+$ pnpm prisma generate
+$ pnpm run start:dev
 ```
 
 # 📷 Preview
 
 ## Access point desktop app
+
 This app is used to read student id card by communicating with the arduino and allows exporting them to the server
 
 <img src="https://github.com/devlotfi/etu-access/blob/main/github-assets/access-point/preview-1.png">
@@ -106,6 +115,7 @@ This app is used to read student id card by communicating with the arduino and a
 <img src="https://github.com/devlotfi/etu-access/blob/main/github-assets/access-point/preview-6.png">
 
 ## Admin panel
+
 This app is used for general management its features depend on the admin ststus of the connected user, it allows managing users, students, access-points, and exported attendance lists
 
 <img src="https://github.com/devlotfi/etu-access/blob/main/github-assets/admin-panel/preview-1.png">

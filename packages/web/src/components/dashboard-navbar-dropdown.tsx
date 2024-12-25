@@ -51,7 +51,7 @@ export default function DashboardNavbarDropdown({ openSignOutModal }: Props) {
         }}
       >
         <DropdownSection showDivider>
-          <DropdownItem textValue="User">
+          <DropdownItem key="user" textValue="User">
             <div className="flex font-bold text-[13pt]">User: </div>
             <div className="flex text-[10pt]">
               {user.firstName} {user.lastName}
