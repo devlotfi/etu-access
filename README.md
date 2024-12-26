@@ -77,7 +77,7 @@ An automatic student attendance system using student id cards (These card are 12
 ### NPM deps
 
 ```bash
-$ pnpm
+$ pnpm i
 ```
 
 ## Development
@@ -91,7 +91,7 @@ $ pnpm run dev
 ### Tauri desktop app
 
 ```bash
-$ pnpm run tauri dev
+$ pnpm tauri dev
 ```
 
 ### Server
