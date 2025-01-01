@@ -121,12 +121,63 @@ importers:
 
   packages/desktop-electron:
     dependencies:
+      '@etu-access/config':
+        specifier: workspace:*
+        version: link:../config
+      '@etu-access/lib':
+        specifier: workspace:*
+        version: link:../lib
+      '@fortawesome/fontawesome-svg-core':
+        specifier: ^6.6.0
+        version: 6.7.2
+      '@fortawesome/free-brands-svg-icons':
+        specifier: ^6.6.0
+        version: 6.7.2
+      '@fortawesome/free-solid-svg-icons':
+        specifier: ^6.6.0
+        version: 6.7.2
+      '@fortawesome/react-fontawesome':
+        specifier: ^0.2.2
+        version: 0.2.2(@fortawesome/fontawesome-svg-core@6.7.2)(react@18.3.1)
+      '@internationalized/date':
+        specifier: ^3.5.6
+        version: 3.6.0
+      '@nextui-org/react':
+        specifier: ^2.6.8
+        version: 2.6.10(@types/react@18.3.18)(framer-motion@11.15.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(tailwindcss@3.4.17(ts-node@10.9.2(@swc/core@1.10.1(@swc/helpers@0.5.15))(@types/node@20.17.10)(typescript@5.6.3)))
+      '@tanstack/react-query':
+        specifier: ^5.59.16
+        version: 5.62.10(react@18.3.1)
+      axios:
+        specifier: ^1.7.7
+        version: 1.7.9
+      formik:
+        specifier: ^2.4.6
+        version: 2.4.6(react@18.3.1)
+      jwt-decode:
+        specifier: ^4.0.0
+        version: 4.0.0
+      motion:
+        specifier: ^11.15.0
+        version: 11.15.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      openapi-fetch:
+        specifier: ^0.13.0
+        version: 0.13.3
+      openapi-react-query:
+        specifier: ^0.2.4
+        version: 0.2.8(@tanstack/react-query@5.62.10(react@18.3.1))(openapi-fetch@0.13.3)
       react:
         specifier: ^18.3.1
         version: 18.3.1
       react-dom:
         specifier: ^18.3.1
         version: 18.3.1(react@18.3.1)
+      react-router:
+        specifier: ^7.0.2
+        version: 7.1.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      yup:
+        specifier: ^1.4.0
+        version: 1.6.1
     devDependencies:
       '@eslint/js':
         specifier: ^9.17.0
@@ -143,6 +194,9 @@ importers:
       '@vitejs/plugin-react':
         specifier: ^4.3.4
         version: 4.3.4(vite@6.0.6(@types/node@20.17.10)(jiti@1.21.7)(terser@5.37.0)(tsx@4.19.2)(yaml@2.6.1))
+      autoprefixer:
+        specifier: ^10.4.20
+        version: 10.4.20(postcss@8.4.49)
       concurrently:
         specifier: ^9.1.2
         version: 9.1.2
@@ -164,6 +218,15 @@ importers:
       globals:
         specifier: ^15.14.0
         version: 15.14.0
+      openapi-typescript:
+        specifier: ^7.4.2
+        version: 7.4.4(encoding@0.1.13)(typescript@5.6.3)
+      postcss:
+        specifier: ^8.4.47
+        version: 8.4.49
+      tailwindcss:
+        specifier: ^3.4.14
+        version: 3.4.17(ts-node@10.9.2(@swc/core@1.10.1(@swc/helpers@0.5.15))(@types/node@20.17.10)(typescript@5.6.3))
       tsx:
         specifier: ^4.19.2
         version: 4.19.2

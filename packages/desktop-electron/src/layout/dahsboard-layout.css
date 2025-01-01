@@ -1,0 +1,17 @@
+.dashboard-layout-bg-light {
+  background-image: radial-gradient(#f4f7fb 50%, transparent),
+    radial-gradient(#3562d488 0.1rem, #f4f7fb 0.1rem);
+  background-size:
+    100% 100%,
+    3rem 3rem,
+    3rem 3rem;
+}
+
+.dashboard-layout-bg-dark {
+  background-image: radial-gradient(#242831 50%, transparent),
+    radial-gradient(#3562d488 0.1rem, #242831 0.1rem);
+  background-size:
+    100% 100%,
+    3rem 3rem,
+    3rem 3rem;
+}

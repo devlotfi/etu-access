@@ -10,6 +10,7 @@ function createWindow(): void {
   mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
+    titleBarStyle: 'hidden',
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'), // Load preload script
       nodeIntegration: false, // Prevents access to Node.js features from the renderer
@@ -21,11 +22,11 @@ function createWindow(): void {
   mainWindow.loadURL('http://localhost:1234'); // or 'file://path-to-your-index.html' for local files
 
   // Open DevTools in development mode
-  if (process.env.NODE_ENV === 'development') {
+  if (app.isPackaged) {
+    mainWindow.loadFile(path.join(__dirname, '../renderer/index.html'));
+  } else {
     mainWindow.loadURL('http://localhost:1234');
     mainWindow.webContents.openDevTools();
-  } else {
-    mainWindow.loadFile(path.join(__dirname, '../renderer/index.html'));
   }
 
   // Event listener when the window is closed
