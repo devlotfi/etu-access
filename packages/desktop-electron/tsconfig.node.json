@@ -6,8 +6,8 @@
     "composite": true,
 
     "isolatedModules": true,
-    "outDir": "dist/main",
-    "rootDir": "src/main",
+    "outDir": "dist/electron",
+    "rootDir": "src-electron",
     "esModuleInterop": true,
 
     "strict": true,
@@ -16,5 +16,5 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": ["src/main"]
+  "include": ["src-electron"]
 }

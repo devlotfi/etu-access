@@ -10,10 +10,6 @@ export default defineConfig({
   base: './',
   build: {
     rollupOptions: {
-      input: {
-        entry: 'src/renderer/main.tsx',
-        html: 'index.html',
-      },
       output: {
         dir: 'dist/renderer',
       },
