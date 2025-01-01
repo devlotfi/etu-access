@@ -1,0 +1,20 @@
+{
+  "appId": "com.etuaccess.app",
+  "productName": "EtuAccess",
+  "directories": {
+    "output": "out"
+  },
+  "files": ["dist/**/*"],
+  "mac": {
+    "target": "dmg",
+    "icon": "icons/icon.icns"
+  },
+  "win": {
+    "target": "nsis",
+    "icon": "icons/icon.ico"
+  },
+  "linux": {
+    "target": "AppImage",
+    "icon": "icons/icon.png"
+  }
+}
