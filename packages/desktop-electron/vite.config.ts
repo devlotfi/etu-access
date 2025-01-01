@@ -15,7 +15,7 @@ export default defineConfig({
         html: 'index.html',
       },
       output: {
-        dir: 'dist',
+        dir: 'dist/renderer',
       },
     },
   },

@@ -4,17 +4,14 @@
   "directories": {
     "output": "out"
   },
-  "files": ["dist/**/*"],
+  "files": ["dist/**/*", "icons/**/*"],
   "mac": {
-    "target": "dmg",
-    "icon": "icons/icon.icns"
+    "target": "dmg"
   },
   "win": {
-    "target": "nsis",
-    "icon": "icons/icon.ico"
+    "target": "nsis"
   },
   "linux": {
-    "target": "AppImage",
-    "icon": "icons/icon.png"
+    "target": "AppImage"
   }
 }

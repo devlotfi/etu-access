@@ -25,7 +25,7 @@ function createWindow(): void {
     mainWindow.loadURL('http://localhost:1234');
     mainWindow.webContents.openDevTools();
   } else {
-    mainWindow.loadFile(path.join(__dirname, './index.html'));
+    mainWindow.loadFile(path.join(__dirname, '../renderer/index.html'));
   }
 
   // Event listener when the window is closed
