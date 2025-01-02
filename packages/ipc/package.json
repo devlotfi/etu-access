@@ -1,0 +1,5 @@
+{
+  "name": "@etu-access/ipc",
+  "main": "src/main.ts",
+  "private": true
+}

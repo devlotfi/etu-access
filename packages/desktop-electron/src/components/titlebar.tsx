@@ -17,6 +17,7 @@ export default function TitleBar() {
       <div className="flex px-[0.2rem] space-x-1">
         <h1></h1>
         <Button
+          onPress={() => window.electronAPI.minimize()}
           className="titlebar-btn"
           size="sm"
           variant="bordered"
@@ -25,6 +26,7 @@ export default function TitleBar() {
           <FontAwesomeIcon icon={faWindowMinimize}></FontAwesomeIcon>
         </Button>
         <Button
+          onPress={() => window.electronAPI.maximize()}
           className="titlebar-btn"
           size="sm"
           variant="bordered"
@@ -33,6 +35,7 @@ export default function TitleBar() {
           <FontAwesomeIcon icon={faWindowMaximize}></FontAwesomeIcon>
         </Button>
         <Button
+          onPress={() => window.electronAPI.close()}
           className="titlebar-btn"
           size="sm"
           variant="bordered"

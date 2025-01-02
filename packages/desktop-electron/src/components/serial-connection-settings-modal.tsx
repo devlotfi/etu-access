@@ -37,6 +37,9 @@ export function SerialConnectionSettings({
   const { data: portListData, isLoading: portListIsLoading } = useQuery({
     queryKey: ['SERIAL_PORT_LIST'],
     queryFn: async () => {
+      const serialPortList = await window.electronAPI.serialPortList();
+      console.log(serialPortList);
+
       //const serialPortList: { port_name: string }[] = await invoke('serial_port_list');
       // console.log(serialPortList);
       //return serialPortList;

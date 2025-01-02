@@ -1,13 +1,13 @@
 import { app, BrowserWindow, ipcMain } from 'electron';
 import path from 'path';
+import { ElectronIPCMessages } from '../shared/electron-ipc-messages';
+import { SerialPort } from 'serialport';
 
 // Create a reference for the window so that it can be accessed later
-let mainWindow: BrowserWindow | null = null;
-
 // Function to create the main window
-function createWindow(): void {
+function createWindow() {
   // Create a new window instance
-  mainWindow = new BrowserWindow({
+  const mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
     titleBarStyle: 'hidden',
@@ -29,15 +29,30 @@ function createWindow(): void {
     mainWindow.webContents.openDevTools();
   }
 
-  // Event listener when the window is closed
-  mainWindow.on('closed', () => {
-    mainWindow = null;
-  });
+  return mainWindow;
 }
 
 // Event listener when Electron finishes initialization
 app.whenReady().then(() => {
-  createWindow();
+  const mainWindow = createWindow();
+
+  ipcMain.on(ElectronIPCMessages.MINIMIZE, () => {
+    mainWindow.minimize();
+  });
+  ipcMain.on(ElectronIPCMessages.MAXIMIZE, () => {
+    if (mainWindow.isMaximized()) {
+      mainWindow.unmaximize();
+    } else {
+      mainWindow.maximize();
+    }
+  });
+  ipcMain.on(ElectronIPCMessages.CLOSE, () => {
+    mainWindow.close();
+  });
+
+  ipcMain.handle(ElectronIPCMessages.SERIAL_PORT_LIST, () => {
+    return SerialPort.list();
+  });
 
   // For macOS, create a window when the app is clicked if no other windows are open
   app.on('activate', () => {
@@ -52,9 +67,4 @@ app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
     app.quit();
   }
-});
-
-// Handle IPC communication with renderer process (optional example)
-ipcMain.handle('some-action', async () => {
-  return 'result'; // Send a result back to the renderer process
 });
