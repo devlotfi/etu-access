@@ -46,7 +46,11 @@ export function SerialConnectionSettings({
         const info = port.getInfo();
 
         return {
-          id: `PORT-${i}/${info.usbProductId && info.usbVendorId ? `${info.usbProductId}-${info.usbVendorId}` : `UNKNOWN`}`,
+          id: `PORT-${i}/${
+            info.usbProductId && info.usbVendorId
+              ? `${info.usbProductId}-${info.usbVendorId}`
+              : `UNKNOWN`
+          }`,
           info,
           port,
         };
@@ -78,8 +82,6 @@ export function SerialConnectionSettings({
       mutationFn: async () => {
         try {
           await stopReader();
-          await serialPortData?.port.close();
-          setSerialPortData(null);
           onClose();
         } catch (error) {
           console.log(error);

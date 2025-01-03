@@ -9,14 +9,15 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button, Chip, useDisclosure } from '@nextui-org/react';
 import { SerialConnectionSettings } from '../components/serial-connection-settings-modal';
-import { useContext, useEffect, useState } from 'react';
+import { useCallback, useContext, useEffect, useState } from 'react';
 import { CardReaderContext } from '../context/card-reader-context';
 import { useQuery } from '@tanstack/react-query';
 import { IdCardSVG } from '@etu-access/lib';
 import { AttendanceStore } from '../attendance-store';
 
 export default function CardReaderPage() {
-  const { serialPortData, readerRef } = useContext(CardReaderContext);
+  const { serialPortData, setSerialPortData, readerRef } =
+    useContext(CardReaderContext);
   const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
   const [cardDetectedStatus, setCardDetectedStatus] = useState<
     'ATTENDANCE_SAVED' | 'ATTENDANCE_ALREADY_SAVED' | null
@@ -24,7 +25,11 @@ export default function CardReaderPage() {
 
   const { isLoading } = useQuery({
     queryKey: ['CARD_DETECTED_LISTENER'],
+    networkMode: 'online',
+
     queryFn: async () => {
+      console.log('lll', serialPortData);
+
       if (serialPortData) {
         readerRef.current = serialPortData.port.readable!.getReader();
         const decoder = new TextDecoder();
@@ -94,6 +99,22 @@ export default function CardReaderPage() {
       }
     };
   }, [cardDetectedStatus]);
+
+  const stopReader = useCallback(async () => {
+    if (readerRef.current) {
+      await readerRef.current.cancel();
+      readerRef.current.releaseLock();
+      readerRef.current = null;
+      await serialPortData?.port.close();
+      setSerialPortData(null);
+    }
+  }, [readerRef, serialPortData?.port, setSerialPortData]);
+
+  useEffect(() => {
+    return () => {
+      stopReader();
+    };
+  }, [stopReader]);
 
   return (
     <>
@@ -180,13 +201,7 @@ export default function CardReaderPage() {
         onClose={onClose}
         isOpen={isOpen}
         onOpenChange={onOpenChange}
-        stopReader={async () => {
-          if (readerRef.current) {
-            await readerRef.current.cancel();
-            readerRef.current.releaseLock();
-            readerRef.current = null;
-          }
-        }}
+        stopReader={stopReader}
       ></SerialConnectionSettings>
     </>
   );
