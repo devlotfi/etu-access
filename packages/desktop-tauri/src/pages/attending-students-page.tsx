@@ -19,7 +19,6 @@ import {
   useDisclosure,
 } from '@nextui-org/react';
 import { memo, useCallback } from 'react';
-import { useNavigate } from 'react-router';
 import { $api, components, usePagination, Utils } from '@etu-access/lib';
 import { Heading } from '@etu-access/lib';
 import { AttendanceStore } from '../attendance-store';
@@ -32,10 +31,6 @@ interface MemoTableProps {
 }
 
 const columns = [
-  {
-    key: 'details',
-    label: '',
-  },
   {
     key: 'firstName',
     label: 'First name',
@@ -83,34 +78,19 @@ const columns = [
 ];
 
 const MemoTable = memo(({ isLoading, data }: MemoTableProps) => {
-  const navigate = useNavigate();
-
   const renderCell = useCallback(
     (student: components['schemas']['StudentDTO'], columnKey: React.Key) => {
       const cellValue =
         student[columnKey as keyof components['schemas']['StudentDTO']];
 
       switch (columnKey) {
-        case 'details':
-          return (
-            <Button
-              variant="bordered"
-              size="sm"
-              isIconOnly
-              onPress={() => navigate(`/dashboard/students/${student.id}`)}
-            >
-              <FontAwesomeIcon
-                icon={faArrowUpRightFromSquare}
-              ></FontAwesomeIcon>
-            </Button>
-          );
         case 'dateOfBirth':
           return Utils.formatDate(new Date(student.dateOfBirth));
         default:
           return cellValue;
       }
     },
-    [navigate],
+    [],
   );
 
   return (
