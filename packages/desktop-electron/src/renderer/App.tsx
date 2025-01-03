@@ -1,43 +1,53 @@
-import { useEffect, useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
-import './App.css';
+import {
+  NotProtectedRoute,
+  ProtectedRoute,
+  SettingsPage,
+  SignInPage,
+} from '@etu-access/lib';
+import { HashRouter, Navigate, Route, Routes } from 'react-router';
+import DashboardLayout from './layout/dashboard-layout';
+import HomePage from './pages/home-page';
+import AttendingStudentsListPage from './pages/attending-students-page';
+import CardReaderPage from './pages/card-reader-page';
 
-function App() {
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    console.log(window.electronAPI);
-
-    window.electronAPI.subscribeToMessages(() => {
-      console.log('message recieved');
-    });
-  }, []);
-
+export default function App() {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <HashRouter>
+      <main className="flex flex-1 flex-col">
+        <Routes>
+          <Route index element={<Navigate to={'/sign-in'}></Navigate>}></Route>
+          <Route
+            path="sign-in"
+            element={
+              <NotProtectedRoute>
+                <SignInPage tokenType="ACCESS_POINT"></SignInPage>
+              </NotProtectedRoute>
+            }
+          ></Route>
+          <Route
+            path="dashboard"
+            element={
+              <ProtectedRoute>
+                <DashboardLayout></DashboardLayout>
+              </ProtectedRoute>
+            }
+          >
+            <Route index element={<HomePage></HomePage>}></Route>
+            <Route
+              path="settings"
+              element={<SettingsPage></SettingsPage>}
+            ></Route>
+            <Route
+              path="attending-students"
+              element={<AttendingStudentsListPage></AttendingStudentsListPage>}
+            ></Route>
+            <Route
+              path="card-reader"
+              element={<CardReaderPage></CardReaderPage>}
+            ></Route>
+          </Route>
+        </Routes>
+      </main>
+    </HashRouter>
   );
 }
-
-export default App;

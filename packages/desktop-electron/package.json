@@ -5,21 +5,39 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "postinstall": "electron-builder install-app-deps",
+    "dev:electron": "npm run build-electron:dev && concurrently --names VITE,ELECTRON -c bgMagenta,bgCyan \"vite --config vite-renderer.config.ts\" \"electron dist/main/main.js\" --kill-others",
+    "dev:renderer": "vite --config vite-renderer.config.ts",
+    "build-electron:dev": "concurrently --names BUILD-MAIN,BUILD-PRELOAD -c bgGreen,bgYellow \"npm run build-main:dev\" \"npm run build-preload:dev\"",
+    "build-electron:prod": "concurrently --names BUILD-RENDERER,BUILD-MAIN,BUILD-PRELOAD -c bgMagenta,bgGreen,bgYellow \"npm run build-renderer:prod\" \"npm run build-main:dev\" \"npm run build-preload:dev\" && electron-builder --config electron-builder.json",
     "build-renderer:prod": "tsc -b && vite build --config vite-renderer.config.ts",
     "build-main:dev": "vite build --config vite-main.config.ts",
     "build-main:prod": "tsc -b && vite build --config vite-main.config.ts",
     "build-preload:dev": "vite build --config vite-preload.config.ts",
-    "build-preload:prod": "tsc -b && vite build --config vite-preload.config.ts",
-    "electron-build:dev": "concurrently --names BUILD-MAIN,BUILD-PRELOAD -c bgGreen,bgYellow \"npm run build-main:dev\" \"npm run build-preload:dev\"",
-    "electron-build:prod": "concurrently --names BUILD-RENDERER,BUILD-MAIN,BUILD-PRELOAD -c bgMagenta,bgGreen,bgYellow \"npm run build-renderer:prod\" \"npm run build-main:dev\" \"npm run build-preload:dev\" && electron-builder --config electron-builder.json",
-    "electron-run:dev": "npm run electron-build:dev && concurrently --names VITE,ELECTRON -c bgMagenta,bgCyan \"vite --config vite-renderer.config.ts\" \"electron dist/main/main.js\" --kill-others"
+    "build-preload:prod": "tsc -b && vite build --config vite-preload.config.ts"
   },
   "dependencies": {
+    "@etu-access/ipc": "workspace:*",
+    "@etu-access/config": "workspace:*",
+    "@etu-access/lib": "workspace:*",
+    "@types/w3c-web-serial": "^1.0.7",
     "concurrently": "^9.1.2",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "serialport": "^13.0.0"
+    "@fortawesome/fontawesome-svg-core": "^6.6.0",
+    "@fortawesome/free-brands-svg-icons": "^6.6.0",
+    "@fortawesome/free-solid-svg-icons": "^6.6.0",
+    "@fortawesome/react-fontawesome": "^0.2.2",
+    "@internationalized/date": "^3.5.6",
+    "@nextui-org/react": "^2.6.8",
+    "@tanstack/react-query": "^5.59.16",
+    "axios": "^1.7.7",
+    "formik": "^2.4.6",
+    "jwt-decode": "^4.0.0",
+    "motion": "^11.15.0",
+    "openapi-fetch": "^0.13.0",
+    "openapi-react-query": "^0.2.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router": "^7.0.2",
+    "yup": "^1.4.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
@@ -35,7 +53,11 @@
     "globals": "^15.14.0",
     "typescript": "~5.6.2",
     "typescript-eslint": "^8.18.2",
-    "vite": "^6.0.5"
+    "vite": "^6.0.5",
+    "autoprefixer": "^10.4.20",
+    "openapi-typescript": "^7.4.2",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.14"
   },
   "packageManager": "pnpm@9.15.1+sha512.1acb565e6193efbebda772702950469150cf12bcc764262e7587e71d19dc98a423dff9536e57ea44c49bdf790ff694e83c27be5faa23d67e0c033b583be4bfcf"
 }

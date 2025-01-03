@@ -1,13 +1,8 @@
-//import { ElectronIPCMessages } from '@etu-access/ipc';
+import { ElectronIPCMessages } from '@etu-access/ipc';
 import { contextBridge, ipcRenderer } from 'electron';
 
-//console.log('Hello---------', ElectronIPCMessages);
-
 contextBridge.exposeInMainWorld('electronAPI', {
-  subscribeToMessages: (callback: () => void) => {
-    // Subscribe to a message from the main process
-    ipcRenderer.on('message', () => {
-      callback();
-    });
-  },
+  minimize: () => ipcRenderer.send(ElectronIPCMessages.MINIMIZE),
+  maximize: () => ipcRenderer.send(ElectronIPCMessages.MAXIMIZE),
+  close: () => ipcRenderer.send(ElectronIPCMessages.CLOSE),
 });

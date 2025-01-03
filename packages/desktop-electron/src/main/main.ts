@@ -1,16 +1,12 @@
-import { app, BrowserWindow, ipcMain } from 'electron';
+import { app, BrowserWindow, globalShortcut, ipcMain } from 'electron';
 import path from 'path';
-//import { SerialPort } from 'serialport';
-//import { ElectronIPCMessages } from '@etu-access/ipc';
+import { ElectronIPCMessages } from '@etu-access/ipc';
 
 // Create a reference for the window so that it can be accessed later
 // Function to create the main window
 function createWindow() {
-  // Create a new window instance
-  console.log(path.join(import.meta.dirname, '../preload/preload.js'));
-
   const mainWindow = new BrowserWindow({
-    width: 800,
+    width: 900,
     height: 600,
     titleBarStyle: 'hidden',
     webPreferences: {
@@ -18,6 +14,14 @@ function createWindow() {
       nodeIntegration: false, // Prevents access to Node.js features from the renderer
       contextIsolation: true, // Isolates context between main and renderer process
     },
+  });
+
+  mainWindow.webContents.session.setPermissionCheckHandler(() => {
+    return true;
+  });
+
+  mainWindow.webContents.session.setDevicePermissionHandler(() => {
+    return true;
   });
 
   // Open DevTools in development mode
@@ -37,22 +41,22 @@ function createWindow() {
 app.whenReady().then(() => {
   const mainWindow = createWindow();
 
-  ipcMain.on('ElectronIPCMessages.MINIMIZE', () => {
+  globalShortcut.register('F5', () => {
+    if (mainWindow) mainWindow.reload();
+  });
+
+  ipcMain.on(ElectronIPCMessages.MINIMIZE, () => {
     mainWindow.minimize();
   });
-  ipcMain.on('ElectronIPCMessages.MAXIMIZE', () => {
+  ipcMain.on(ElectronIPCMessages.MAXIMIZE, () => {
     if (mainWindow.isMaximized()) {
       mainWindow.unmaximize();
     } else {
       mainWindow.maximize();
     }
   });
-  ipcMain.on('ElectronIPCMessages.CLOSE', () => {
+  ipcMain.on(ElectronIPCMessages.CLOSE, () => {
     mainWindow.close();
-  });
-
-  ipcMain.handle('ElectronIPCMessages.SERIAL_PORT_LIST', () => {
-    //return SerialPort.list();
   });
 
   setInterval(() => {
