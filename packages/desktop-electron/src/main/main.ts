@@ -59,10 +59,6 @@ app.whenReady().then(() => {
     mainWindow.close();
   });
 
-  setInterval(() => {
-    mainWindow.webContents.send('message', 'lol');
-  }, 1000);
-
   // For macOS, create a window when the app is clicked if no other windows are open
   app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) {
