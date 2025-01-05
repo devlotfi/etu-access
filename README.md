@@ -20,13 +20,22 @@ An automatic student attendance system using student id cards (These card are 12
   <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/ts.svg">
   <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/tailwind.svg">
   <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/react.svg">
-  <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/tauri.svg">
-  <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/rust.svg">
   <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/fontawesome.svg">
   <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/formik.svg">
   <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/nextui.svg">
   <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/reactquery.svg">
   <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/vite.svg">
+</p>
+
+## Desktop app
+The same app implemented twice using
+
+<p float="left">
+  <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/tauri.svg">
+  <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/rust.svg">
+</p>
+<p float="left">
+  <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/electron.svg">
 </p>
 
 ## Backend
