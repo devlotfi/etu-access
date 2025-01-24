@@ -1,4 +1,4 @@
-<img height="100px" width="100px" src="https://github.com/devlotfi/etu-access/blob/main/github-assets/logo.svg">
+<img height="100px" width="100px" src="https://raw.githubusercontent.com/devlotfi/etu-access/main/github-assets/logo.svg">
 
 # 📜 etu-access
 
@@ -59,7 +59,7 @@ The same app implemented twice using
 
 ## Arduino setup
 
-<img src="https://github.com/devlotfi/etu-access/blob/main/github-assets/arduino-setup.png">
+<img src="https://raw.githubusercontent.com/devlotfi/etu-access/main/github-assets/arduino-setup.png">
 
 # Parts
 
@@ -117,20 +117,20 @@ $ pnpm run start:dev
 
 This app is used to read student id card by communicating with the arduino and allows exporting them to the server
 
-<img src="https://github.com/devlotfi/etu-access/blob/main/github-assets/access-point/preview-1.png">
-<img src="https://github.com/devlotfi/etu-access/blob/main/github-assets/access-point/preview-2.png">
-<img src="https://github.com/devlotfi/etu-access/blob/main/github-assets/access-point/preview-3.png">
-<img src="https://github.com/devlotfi/etu-access/blob/main/github-assets/access-point/preview-4.png">
-<img src="https://github.com/devlotfi/etu-access/blob/main/github-assets/access-point/preview-5.png">
-<img src="https://github.com/devlotfi/etu-access/blob/main/github-assets/access-point/preview-6.png">
+<img src="https://raw.githubusercontent.com/devlotfi/etu-access/main/github-assets/access-point/preview-1.png">
+<img src="https://raw.githubusercontent.com/devlotfi/etu-access/main/github-assets/access-point/preview-2.png">
+<img src="https://raw.githubusercontent.com/devlotfi/etu-access/main/github-assets/access-point/preview-3.png">
+<img src="https://raw.githubusercontent.com/devlotfi/etu-access/main/github-assets/access-point/preview-4.png">
+<img src="https://raw.githubusercontent.com/devlotfi/etu-access/main/github-assets/access-point/preview-5.png">
+<img src="https://raw.githubusercontent.com/devlotfi/etu-access/main/github-assets/access-point/preview-6.png">
 
 ## Admin panel
 
 This app is used for general management its features depend on the admin ststus of the connected user, it allows managing users, students, access-points, and exported attendance lists
 
-<img src="https://github.com/devlotfi/etu-access/blob/main/github-assets/admin-panel/preview-1.png">
-<img src="https://github.com/devlotfi/etu-access/blob/main/github-assets/admin-panel/preview-2.png">
-<img src="https://github.com/devlotfi/etu-access/blob/main/github-assets/admin-panel/preview-3.png">
-<img src="https://github.com/devlotfi/etu-access/blob/main/github-assets/admin-panel/preview-4.png">
-<img src="https://github.com/devlotfi/etu-access/blob/main/github-assets/admin-panel/preview-5.png">
-<img src="https://github.com/devlotfi/etu-access/blob/main/github-assets/admin-panel/preview-6.png">
+<img src="https://raw.githubusercontent.com/devlotfi/etu-access/main/github-assets/admin-panel/preview-1.png">
+<img src="https://raw.githubusercontent.com/devlotfi/etu-access/main/github-assets/admin-panel/preview-2.png">
+<img src="https://raw.githubusercontent.com/devlotfi/etu-access/main/github-assets/admin-panel/preview-3.png">
+<img src="https://raw.githubusercontent.com/devlotfi/etu-access/main/github-assets/admin-panel/preview-4.png">
+<img src="https://raw.githubusercontent.com/devlotfi/etu-access/main/github-assets/admin-panel/preview-5.png">
+<img src="https://raw.githubusercontent.com/devlotfi/etu-access/main/github-assets/admin-panel/preview-6.png">
