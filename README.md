@@ -23,7 +23,7 @@ An automatic student attendance system using student id cards (These card are 12
   <img height="50px" src="https://devlotfi.github.io/stack-icons/icons/fontawesome.svg">
   <img height="50px" src="https://devlotfi.github.io/stack-icons/icons/formik.svg">
   <img height="50px" src="https://devlotfi.github.io/stack-icons/icons/nextui.svg">
-  <img height="50px" src="https://devlotfi.github.io/stack-icons/icons/reactquery.svg">
+  <img height="50px" src="https://devlotfi.github.io/stack-icons/icons/tanstack-query.svg">
   <img height="50px" src="https://devlotfi.github.io/stack-icons/icons/react-router.svg">
   <img height="50px" src="https://devlotfi.github.io/stack-icons/icons/vite.svg">
 </p>
